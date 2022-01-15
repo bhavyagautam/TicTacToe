@@ -147,6 +147,7 @@ void twoPlayerGame(){
     char game[9],sym;
     int status[9],t=0,val,cnt=0;;
     bool notRunning=0;
+    float tempVal;
     for (int i = 0; i < 9; i++)status[i]=0;
     
     resetGame(game);
@@ -169,9 +170,11 @@ void twoPlayerGame(){
         //to check if the position hasn't already been played
         do{
         cout<<endl<<"Which position?";
-        cin>>val;
+        cin>>tempVal;
+        val=tempVal;//to accomodate float type
+        if(val<1 || val >9)cout<<"Value not in range, try again.";
         if(status[val-1]==1)cout<<"Already taken position, try again.";
-        }while(status[val-1]==1);
+        }while(status[val-1]==1 || val<1 || val>9);
 
         turn(game,sym,val-1);
         status[val-1]=1;
@@ -186,6 +189,6 @@ void twoPlayerGame(){
 int main(){
     
     cout<<"TIC-TAC-TOE"<<endl;
-    twoPlayerGame();
+    twoPlayerGame();      
     return 0;
 }

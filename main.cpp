@@ -189,6 +189,15 @@ void twoPlayerGame(){
 int main(){
     
     cout<<"TIC-TAC-TOE"<<endl;
+    bool playAgain=1;
     twoPlayerGame();      
+    char opt;
+    while(playAgain){
+        cout<<endl<<"Do you want to play again?(y/n)";
+        cin>>opt;
+        if(opt=='y')twoPlayerGame();
+        if(opt=='n')break;
+    }
+    cout<<"Thanks for playing!";
     return 0;
 }
